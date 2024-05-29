@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reddit+Mono:wght@200..900&family=Tenor+Sans&display=swap');
+
+/* Styles for the recipe card container */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #E4CCFF;
+  width: 650px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  padding: 20px;
+  color: black;
+  justify-content: center;
+  gap: 20px;
+}
+  
+/* Styles for the card content */
+.cardcontent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 10px;
+  gap: 20px;
+}
+
+.card h1 {
+  font-family: "Georgia", serif;
+  font-size: 3rem;
+}
+
+form h3 {
+  text-align: left;
+  font-family: "Dancing Script", cursive; 
+  font-size: 1.75rem;  
+}
+
+.inputs {
+  width: 575px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: left;
+  gap: 10px;  
+  font-family: "Tenor Sans", sans-serif;
+}
+  
+form input, select {
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: #ede3f1;
+  color: black;
+  flex-grow: 1;
+  padding: 0px 10px;
+}
+
+.card-buttons{
+  display: flex;
+  margin: 30px 0px;
+  gap: 35px;
+  justify-content: center;
+  align-items: center;
+}
+
+form button {
+  color: black;
+  height: 50px;
+  width: 200px;
+  border-color: #af97ca;  
+  border-radius: 25px;
+  border-width: 1.2px;
+  border-radius: 25px;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+#create {
+  background-color: #a3ffbf;  
+}
+
+#cancel {
+  background-color: #ffaea3;  
+}

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reddit+Mono:wght@200..900&family=Tenor+Sans&display=swap');
+
+body {
+    background-image: url('/resources/background.png'); 
+    background-color: #f0f0f0; 
+    background-size: cover;
+    text-align: center; 
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body h1 {
+    color: #524166;
+    font-family: "Dancing Script", cursive;
+    font-size: 5rem;
+    background-color: #f3fbfb;
+}
+
+.greeting {
+    padding: 40px 0px 45px 70px;
+    width: 700px;
+    text-align: left;
+    color: #524166;
+    text-shadow: #524166; 
+    background-color: #f3fbfb;
+    font-family: "Tenor Sans", sans-serif;
+}
+
+.footer-button {
+    background-color: #E4CCFF;
+    height: 50px;
+    width: 250px;
+    border-color: #af97ca;
+    border-radius: 25px;
+    border-width: 1.2px;
+    border-radius: 25px;
+    font-size: 125%;
+    font-weight: bolder;
+    margin-bottom: 50px;
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reddit+Mono:wght@200..900&family=Tenor+Sans&display=swap');
+
+.hdr {
+    font-family: "Reddit Mono", monospace;
+    display: grid;
+    grid-template-columns: 0.25fr 2fr 2fr 0.35fr;
+    align-items: center;
+    background-color: #E4CCFF;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+#logo {
+    height: 75px;
+}
+
+.header-button {
+    background-color: #dfb6ee;
+    height: 50px;
+    border-color: #af97ca;
+    border-width: 1.2px;
+    border-radius: 25px;
+    font-size: 100%;
+    padding: 10px;    
+    cursor: pointer;
+}
+
+.hdr h1 {
+    text-align: left;
+}
