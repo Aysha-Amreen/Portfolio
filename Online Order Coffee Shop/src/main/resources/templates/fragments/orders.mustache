@@ -1,0 +1,27 @@
+<div class="order framed container">
+    <h3>Order ID: {{orderId}}</h3>
+    <h3>Date: {{date}}</h3>
+    <h3>Items</h3>
+    <hr>
+    <div class="order-grid">
+        <div class="order-items">
+            {{#items}}
+                <p>{{name}}</p>
+                <p>{{size}}</p>
+            {{/items}}
+        </div>
+        <div class="order-quantities">
+            {{#quantitiesStr}}
+                <p>{{.}}</p>
+            {{/quantitiesStr}}
+        </div>
+        <div>
+            {{#items}}
+                <form action="/review/{{itemId}}" method="post">
+                    <button type="submit" class="small-button">Review Item</button>
+                </form>
+            {{/items}}            
+        </div>
+    </div>
+</div>
+</div>

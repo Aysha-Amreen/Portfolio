@@ -1,0 +1,39 @@
+security.txt file that describes the approach you used to securely store user passwords
+
+
+//Overview//
+
+This document outlines the updated security practices used in the user management service to ensure that user passwords are stored and handled securely.
+
+//Technologies Used//
+- Java: Server-side programming language.
+- Spring Security: Framework providing robust security features.
+- import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+
+//Password Storage and Handling Approach (Referenced from Project 2)//
+
+1. Hashing Algorithm: 
+   - We utilize BCrypt, a strong and adaptive hashing algorithm that incorporates salts automatically to safeguard against rainbow table attacks and brute force attempts.
+   - BCrypt's strength is configurable, allowing adjustments to hashing complexity.
+
+2. Password Security Enhancements:
+   - Complexity Requirements: Passwords must meet requirements including minimum length, and the inclusion of uppercase, lowercase, numeric, and special characters.
+
+3. Database Security:
+   - Password hashes, not plaintext passwords, are stored securely in the database.
+   - Access to the database is tightly controlled, with permissions granted only to necessary components of the application.
+
+4. Security Logging and Monitoring:
+   - All login attempts, successful and failed, are logged.
+   
+5. More about BCryptPasswordEncoder 
+- Understanding of the 'authenticate' Method Workflow
+
+	a. The method passwordEncoder.matches(password, storedPasswordHash) compares the provided password (in plaintext) with the stored hashed password. 
+
+	b. The matches method computes a hash of the provided password using the same salt extracted from the stored hash and then compares the result with the stored hash. 
+
+-  By using BCryptPasswordEncoder, we ensure that even if the password data were to be leaked, the actual passwords would still be protected due to the secure hashing mechanism.
+
+

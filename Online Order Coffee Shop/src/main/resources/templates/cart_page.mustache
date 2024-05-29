@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body>
+
+    {{> fragments/top_bar}}
+
+    <div class="container">
+        <div class="heading">
+            <h1>My Cart</h1>
+            <img src="/headings/cart.jpg" alt="Fire icon">
+        </div>
+        <div class="cart">
+            <h2>Item</h2>
+            <h2>Size</h2>
+            <h2>Price</h2>
+            <h2></h2>            
+            <h2>Qty</h2>            
+        </div>
+        <hr>
+    
+    {{#cart}}
+        {{> fragments/cart_items_container}}
+    {{/cart}}
+
+    {{> fragments/no_content_message}}
+
+    <hr>
+    <div>
+        <h3>Total: $ {{cartPrice}}</h3>
+    </div>
+    <div class="big-button-div">
+        <form action="/cart/placeorder" method="post">
+            <button type="submit" class="big-button">Place Order</button>
+        </form>        
+    </div>
+    </div>
+    
+    {{> fragments/footer}}
+
+</body>
+
+</html>

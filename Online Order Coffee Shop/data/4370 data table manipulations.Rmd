@@ -1,0 +1,131 @@
+---
+title: "4370 data table manipulation"
+author: "Kat Ragle"
+date: "2024-04-26"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+orders = read_csv("originalOrders.csv", na = c(" ", ""))
+items = read_csv("items.csv")
+
+#remove in out column
+orders = orders[,-7]
+
+#find all unique order ids
+all_orders = unique(orders$order_id)
+
+#make new table
+orders_items = data.frame(matrix(nrow = 0, ncol = 3))
+colnames(orders_items) = c("order_id", "item_id", "quantity")
+
+
+for (o in all_orders) {
+  temp = orders[orders$order_id == o,]
+  # if there is only one order_id, item_id combination
+  if (nrow(temp) == 1) {
+    i_id = temp$item_id
+    q = temp$quantity
+    orders_items[nrow(orders_items) + 1,] = c(o, i_id, q)
+    
+  # if there are multiple item_ids for one order_id
+  } else {
+    for (i in 1:nrow(temp)) {
+      temp_i = temp[i,]$item_id
+      q = temp[i,]$quantity
+      orders_items[nrow(orders_items) + 1,] = c(o, temp_i, q)
+    } # for
+  }
+} # for
+
+#orders = orders[,-c(1, 4, 5)]
+
+# Some orders contained items that do not exist. We're gonna fix those.
+badOrders = orders_items[orders_items$item_id == "It025" | orders_items$item_id == "It026" | orders_items$item_id == "It027" | orders_items$item_id == "It028",]
+for(x in 1:nrow(badOrders)) {
+  for(y in 1:nrow(orders_items)) {
+    if (orders_items[y,]$order_id == badOrders[x,]$order_id & orders_items[y,]$item_id == badOrders[x,]$item_id) {
+      orders_items[y,]$item_id = "It024"
+      orders_items[y,]$quantity = 3
+    } # if
+  } # for
+} # for
+
+#duplicate data for population purposes
+len = nrow(orders_items)
+for(i in 1:len) {
+  r_id = nrow(orders) + 1
+  o_id = orders[i,]$order_id
+  c = orders[i,]$created_at
+  i_id = orders_items[i,]$item_id
+  cn = orders[i,]$cust_name
+  
+  orders_items[nrow(orders_items) + 1,] = c(o_id, i_id, 2)
+  orders[r_id,]$row_id = r_id
+  orders[r_id,]$order_id = o_id
+  orders[r_id,]$created_at = c
+  orders[r_id,]$item_id = i_id
+  orders[r_id,]$quantity = 2
+  orders[r_id,]$cust_name = cn
+} # for
+
+orders = orders[,-c(1, 4, 5)]
+orders = unique(orders)
+
+#remove duplicated values! There's two duplicated orders from the original data
+orders_items = unique(orders_items)
+```
+
+
+```{r}
+recipes = read_csv("recipe.csv")
+ingredients = read_csv("ingredients.csv")
+
+#find all unique recipes
+all_recipes = unique(recipes$recipe_id)
+
+#make new table
+recipe_ingredients = data.frame(matrix(nrow = 0, ncol = 3))
+colnames(recipe_ingredients) = c("recipe_id", "ing_id", "quantity")
+
+
+for (r in all_recipes) {
+  temp = recipes[recipes$recipe_id == r,]
+  # if there is only one recipe_id, ingredient_id combination
+  if (nrow(temp) == 1) {
+    i_id = temp$ing_id
+    q = temp$quantity
+    recipe_ingredients[nrow(recipe_ingredients) + 1,] = c(r, i_id, q)
+    
+  # if there are multiple ing_ids for one recipe_id
+  } else {
+    for (i in 1:nrow(temp)) {
+      temp_i = temp[i,]$ing_id
+      q = temp[i,]$quantity
+      recipe_ingredients[nrow(recipe_ingredients) + 1,] = c(r, temp_i, q)
+    } # for
+  } # if
+} # for
+
+recipe_ingredients
+recipes = unique(recipes[,-c(1,3,4)])
+```
+
+
+# print the tables to csv format 
+```{r}
+write.csv(recipe_ingredients, "recipe_ingredients.csv")
+write.csv(recipes, "newOrders.csv")
+write.csv(orders_items, "orders_items.csv")
+write.csv(recipes, "newRecipes.csv")
+```
+
+
+```{r}
+names = unique(orders$cust_name)
+users = tibble("user" = names, "pass" = 1:length(names))
+
+write.csv(users, "customer.csv")
+```

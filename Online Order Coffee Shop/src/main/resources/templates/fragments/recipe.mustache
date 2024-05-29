@@ -1,0 +1,24 @@
+<div class="container">
+    <!-- Recipe Section -->
+    <div class="recipe">
+        <h2>Ingredients</h2>
+        <h2>Quantity</h2>
+    </div>
+    <hr>
+    <div class="recipe">
+        <div>
+            {{#ingredients}}
+                <div>
+                    <p>{{ingName}}</p>
+                </div>
+            {{/ingredients}}
+        </div>
+        <div>
+            {{#quantities}}
+                <div>
+                    <p>{{.}}</p>
+                </div>
+            {{/quantities}}
+        </div>
+    </div>
+</div>

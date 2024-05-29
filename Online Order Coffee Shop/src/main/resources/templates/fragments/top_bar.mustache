@@ -1,0 +1,23 @@
+<div class="separator-bottom">
+    <div class="title-bar content-center">
+        <img class="logo" src="/logo.png" alt="User avatar">
+        <div class="title">
+            <h2>Antisocial Java Cafe</h2>
+            <h3>Order Online!</h3>
+        </div>
+        <form action="/ingredientsearch" method="get">
+            <input name="ingredients" class="short-input" type="text" placeholder="Search by Items...">
+        </form>
+    </div>
+</div>
+<div class="separator-bottom">
+    <nav class="content-center">
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/orders">My Orders</a>
+        <a href="/cart">Cart</a>
+        <a href="/login">Logout</a>
+    </nav>
+</div>
+
+{{> fragments/error_message}}

@@ -1,0 +1,8 @@
+<div class="cart-items">
+    <a href="/item/{{itemId}}"><p>{{name}}</p></a>
+    <p>{{size}}</p>
+    <p>${{price}}</p>
+    <form action="/cart/remove/{{itemId}}" method="post">
+        <button type="submit" class="small-button">remove</button>
+    </form>
+</div>

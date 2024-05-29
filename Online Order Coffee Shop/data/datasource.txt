@@ -1,0 +1,16 @@
+﻿The original data was retrieved from this website: https://www.kaggle.com/datasets/viramatv/coffee-shop-data 
+
+
+We ended up using the orders, items, recipes, ingredients, and inventory csv files. However, many of these files had redundancies that we generated new tables for. Kat did this using R and can be found in the Rmd file titled ‘4370 data table manipulations’. 
+
+
+The changes that were made from the original files:
+* Orders.csv originally had a primary key of order_id, item_id. We extracted this primary key into a different table (orders_items.cev) and dropped item_id from order.csv
+   * Some orders were logged for items that did not exist. Those rows were removed.
+   * Some order ids were repeated for different customers. Those rows were removed.
+   * After cleaning, entries in the orders_items table were duplicated with different quantity amounts to extend the table to reach the 1000+ row requirement.
+* Originally no customer information was provided, so using the customer values from orders.csv we created a table for customers with generated passwords
+* Similarly to orders, recipes originally had a primary key of rec_id, ing_id. This created redundancies, so this primary key combination was extracted into a different table (recipe_ingredients) and all extraneous information from recipe was moved to recipe_ingredients.
+
+
+Reviews were not in the original dataset, so the initial reviews table (consisting of a comment saying “tasty” by the user Alex on every item and a comment saying “ok” by the user Parker on a couple items) was populated by hand.

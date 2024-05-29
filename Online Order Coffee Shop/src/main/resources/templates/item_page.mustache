@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body>
+
+    {{> fragments/top_bar}}
+
+    {{#item}}
+        <div class="container">
+            <div class="item-heading">
+                <img src="/items/{{name}}.jpg" alt="Default Item">
+                <h1>{{name}}</h1>
+            </div>
+        </div>
+    {{/item}}
+    
+    {{#recipe}}
+        {{> fragments/recipe}}
+    {{/recipe}}
+
+    {{#item}}
+        {{> fragments/add_item_form}}
+    
+        {{> fragments/review_container}}
+    {{/item}}
+    
+    {{> fragments/no_content_message}}
+
+    {{> fragments/footer}}
+
+</body>
+
+</html>

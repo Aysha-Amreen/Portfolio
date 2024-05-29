@@ -1,0 +1,21 @@
+<div class="container">
+    <!-- Menu Items Section -->
+    <div class="heading">
+        <h1>Menu</h1>
+        <img src="/headings/menu.png" alt="Menu icon">
+    </div>
+    <div>
+        <h2>Hot Drinks:</h2>
+        {{#hotDrinks}}
+            {{> fragments/items}}
+        {{/hotDrinks}}
+        <h2>Cold Drinks:</h2>
+        {{#coldDrinks}}
+            {{> fragments/items}}
+        {{/coldDrinks}}
+        <h2>Snacks:</h2>
+        {{#snacks}}
+            {{> fragments/items}}
+        {{/snacks}}
+    </div>
+</div>

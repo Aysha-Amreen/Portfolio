@@ -1,0 +1,15 @@
+<div>
+    <!-- Cart Items Section -->
+    <div class="cart-body">
+        <div>
+            {{#items}}
+                {{> fragments/cart_items}}
+            {{/items}}     
+        </div>
+        <div>
+            {{#quantitiesStr}}        
+                <p>{{.}}</p>
+            {{/quantitiesStr}}
+        </div>        
+    </div>      
+</div>
