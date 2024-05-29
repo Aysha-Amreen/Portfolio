@@ -1,0 +1,46 @@
+Pointer Practices
+
+    1. What are the sizes of the following C types on odin? Please include your units.
+    (a) char - 1 bytes
+    (b) char * - 8 bytes
+    (c) short - 2 bytes
+    (d) short * - 8 bytes
+    (e) int - 4 bytes
+    (f) int * - 8 bytes
+    (g) long - 8 bytes
+    (h) long * - 8 bytes
+    (i) int ** - 8 bytes
+    (j) int *** - 8 bytes
+
+    2. Run the program below 3 times. For each run, what is the output of the marked lines below?
+    int i = 5;
+    int* ip = &i;
+    printf("%p\n", (void*) ip); // (a)
+    printf("%p\n", (void*) (ip + 1)); // (b)
+    printf("%p\n", (void*) (ip + 2)); // (c)
+    printf("%p\n", (void*) (ip + 3)); // (d)
+    printf("%p\n", (void*) (ip + 4)); // (e)
+
+    Answer:
+
+    run 1 output:
+    a: 0x7ffe3bd2c94c
+    b: 0x7ffe3bd2c950
+    c: 0x7ffe3bd2c954
+    d: 0x7ffe3bd2c958
+    e: 0x7ffe3bd2c95c
+    run 2 output:
+    a: 0x7fff5cfb310c
+    b: 0x7fff5cfb3110
+    c: 0x7fff5cfb3114
+    d: 0x7fff5cfb3118
+    e: 0x7fff5cfb311c
+    run 3 output:
+    a: 0x7fff51d335cc
+    b: 0x7fff51d335d0
+    c: 0x7fff51d335d4
+    d: 0x7fff51d335d8
+    e: 0x7fff51d335dc
+
+    (f) Is the output for each run different? If so, explain why.
+    |-> Yes the output for each run is different. This is because the operating system, or runtime environment, decides the particular memory locations on runtime. And the memory address is not the same for each time the program is run.
