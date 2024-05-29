@@ -1,3 +1,0 @@
-This is the input.txt file
-This is the second line of the input
-    This is farewell
